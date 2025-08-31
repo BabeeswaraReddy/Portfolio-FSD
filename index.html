@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Babeeswara Reddy Irala - Portfolio</title>
+  <style>
+    :root {
+      --primary: #6a11cb;
+      --secondary: #2575fc;
+      --accent: #ffb347;
+      --bg-light: #f4f4f4;
+      --bg-dark: #121212;
+      --card-light: #fff;
+      --card-dark: #23272f;
+      --text-light: #333;
+      --text-dark: #f4f4f4;
+      --header-gradient: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+      --footer-gradient: linear-gradient(90deg, #2575fc 0%, #6a11cb 100%);
+      --shadow: 0 4px 24px rgba(106,17,203,0.08);
+      --transition: 0.3s cubic-bezier(.4,0,.2,1);
+    }
+    * {
+      margin: 0; padding: 0; box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      line-height: 1.6;
+      background: var(--bg-light);
+      color: var(--text-light);
+      transition: background var(--transition), color var(--transition);
+    }
+    header {
+      background: var(--header-gradient);
+      color: #fff;
+      padding: 32px 0 24px 0;
+      text-align: center;
+      box-shadow: var(--shadow);
+      border-bottom-left-radius: 32px;
+      border-bottom-right-radius: 32px;
+      animation: fadeInDown 1s;
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-40px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+    header h1 {
+      margin-bottom: 10px;
+      font-size: 2.8rem;
+      letter-spacing: 2px;
+      background: linear-gradient(90deg, #ffb347 0%, #fff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    header p {
+      font-size: 1.25rem;
+      opacity: 0.95;
+      margin-bottom: 8px;
+    }
+    nav {
+      margin-top: 18px;
+    }
+    nav a {
+      color: #fff;
+      margin: 0 18px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.1rem;
+      padding: 6px 16px;
+      border-radius: 20px;
+      transition: background var(--transition), color var(--transition);
+    }
+    nav a:hover {
+      background: var(--accent);
+      color: #23272f;
+      text-decoration: none;
+    }
+    section {
+      padding: 48px 20px 32px 20px;
+      max-width: 1000px;
+      margin: 32px auto 0 auto;
+      border-radius: 24px;
+      background: rgba(255,255,255,0.85);
+      box-shadow: var(--shadow);
+      animation: fadeIn 1.2s;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0;}
+      to { opacity: 1;}
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 28px;
+      font-size: 2.2rem;
+      color: var(--primary);
+      letter-spacing: 1px;
+      position: relative;
+    }
+    h2::after {
+      content: '';
+      display: block;
+      margin: 10px auto 0 auto;
+      width: 60px;
+      height: 4px;
+      border-radius: 2px;
+      background: var(--secondary);
+      opacity: 0.5;
+    }
+    .about, .projects, .contact {
+      margin-bottom: 40px;
+    }
+    .about p {
+      font-size: 1.15rem;
+      text-align: center;
+      color: #444;
+      margin-bottom: 0;
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+      gap: 28px;
+      margin-top: 16px;
+    }
+    .project-card {
+      background: var(--card-light);
+      padding: 28px 22px;
+      border-radius: 18px;
+      box-shadow: 0 2px 16px rgba(106,17,203,0.10);
+      border: 2px solid transparent;
+      transition: transform var(--transition), box-shadow var(--transition), border var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .project-card:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 8px 32px rgba(37,117,252,0.18);
+      border: 2px solid var(--secondary);
+      background: linear-gradient(120deg, #fff 80%, #ffb34722 100%);
+    }
+    .project-card h3 {
+      color: var(--primary);
+      margin-bottom: 10px;
+      font-size: 1.3rem;
+      letter-spacing: 1px;
+    }
+    .project-card p {
+      color: #555;
+      font-size: 1.05rem;
+    }
+    .contact-info {
+      text-align: center;
+      font-size: 1.13rem;
+      color: #444;
+    }
+    .contact-info a {
+      color: var(--primary);
+      text-decoration: none;
+      transition: color var(--transition);
+      font-weight: 500;
+    }
+    .contact-info a:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+    footer {
+      background: var(--footer-gradient);
+      color: #fff;
+      text-align: center;
+      padding: 18px;
+      margin-top: 40px;
+      border-top-left-radius: 32px;
+      border-top-right-radius: 32px;
+      font-size: 1.05rem;
+      letter-spacing: 1px;
+      box-shadow: var(--shadow);
+    }
+    .theme-toggle {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      color: #fff;
+      border: none;
+      padding: 14px 16px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.5rem;
+      box-shadow: 0 2px 12px rgba(106,17,203,0.18);
+      transition: background var(--transition), transform var(--transition);
+      z-index: 1000;
+    }
+    .theme-toggle:hover {
+      background: var(--accent);
+      color: #23272f;
+      transform: scale(1.08) rotate(-10deg);
+    }
+    /* Dark mode styles */
+    .dark-mode {
+      background: var(--bg-dark);
+      color: var(--text-dark);
+    }
+    .dark-mode header, .dark-mode footer {
+      background: linear-gradient(90deg, #23272f 0%, #121212 100%);
+      color: #fff;
+    }
+    .dark-mode section {
+      background: rgba(35,39,47,0.93);
+      color: #f4f4f4;
+      box-shadow: 0 4px 24px rgba(37,117,252,0.10);
+    }
+    .dark-mode .project-card {
+      background: var(--card-dark);
+      color: #f4f4f4;
+      box-shadow: 0 2px 16px rgba(37,117,252,0.10);
+    }
+    .dark-mode .project-card h3 {
+      color: var(--accent);
+    }
+    .dark-mode .project-card p,
+    .dark-mode .about p,
+    .dark-mode .contact-info {
+      color: #e0e0e0;
+    }
+    .dark-mode .contact-info a {
+      color: var(--accent);
+    }
+    .dark-mode .contact-info a:hover {
+      color: var(--secondary);
+    }
+    .dark-mode .theme-toggle {
+      background: linear-gradient(135deg, #23272f, #6a11cb);
+      color: #ffb347;
+    }
+    /* Responsive */
+    @media (max-width: 700px) {
+      section {
+        padding: 28px 8px 20px 8px;
+        border-radius: 12px;
+      }
+      header, footer {
+        border-radius: 0;
+      }
+      .theme-toggle {
+        bottom: 16px;
+        right: 16px;
+        padding: 10px 12px;
+        font-size: 1.2rem;
+      }
+      .projects-grid {
+        gap: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Babeeswara Reddy Irala</h1>
+    <p>Data Science Enthusiast | Web Developer | Lifelong Learner</p>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <section id="about" class="about">
+    <h2>About Me</h2>
+    <p>Hello! I'm <b>Babeeswara Reddy Irala</b>, a passionate Data Science enthusiast with hands-on experience in data analysis, machine learning, and full-stack development. I enjoy building projects that merge technical problem-solving with creativity.</p>
+  </section>
+
+  <section id="projects" class="projects">
+    <h2>Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card">
+        <h3>Sales Prediction Model</h3>
+        <p>Built a machine learning model to predict sales using Python, Pandas, and Scikit-learn.</p>
+      </div>
+      <div class="project-card">
+        <h3>Library Management System</h3>
+        <p>Developed a MySQL-based project to manage book records, issuing, returns, and fines.</p>
+      </div>
+      <div class="project-card">
+        <h3>Portfolio Website</h3>
+        <p>This live portfolio site built with HTML, CSS, and JavaScript to showcase my skills and projects.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Contact</h2>
+    <div class="contact-info">
+      <p>Email: <a href="mailto:babeeswarareddyirala@gmail.com">babeeswarareddyirala@gmail.com</a></p>
+      <p>Phone: <a href="tel:9866392103">9866392103</a></p>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Babeeswara Reddy Irala. All rights reserved.</p>
+  </footer>
+
+  <button class="theme-toggle" onclick="toggleTheme()">🌙</button>
+
+  <script>
+    function toggleTheme(){
+      document.body.classList.toggle('dark-mode');
+      const btn = document.querySelector('.theme-toggle');
+      if(document.body.classList.contains('dark-mode')){
+        btn.textContent = '☀️';
+      } else {
+        btn.textContent = '🌙';
+      }
+    }
+  </script>
+</body>
+</html>
